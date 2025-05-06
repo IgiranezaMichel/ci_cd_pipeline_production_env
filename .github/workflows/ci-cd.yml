@@ -33,7 +33,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build Backend
-        working-directory: backend
+        working-directory: backend/mis-ilpd
         run: mvn clean package -DskipTests=false
 
       # Upload to server via SCP
