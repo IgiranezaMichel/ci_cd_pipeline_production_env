@@ -44,8 +44,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: |
-            backend/target/*.jar
-            frontend/build/*
+            backend/mis-ilpd/target/*.jar
+            frontend/mis-ilpd/build/*
           target: /home/${{ secrets.SERVER_USER }}/deploy
 
       # SSH into server and restart Spring Boot app
