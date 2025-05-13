@@ -20,7 +20,7 @@ jobs:
           node-version: '20'
 
       - name: Install and Build Frontend
-        working-directory: frontend/mis
+        working-directory: frontend/mis-ilpd
         run: |
           npm ci
           npm run build
@@ -33,7 +33,7 @@ jobs:
       #     distribution: 'temurin'
 
       # - name: Build Backend
-      #   working-directory: backend/mis
+      #   working-directory: backend/mis-ilpd
       #   run: mvn clean package -DskipTests=false
 
       # Upload to server via SCP
@@ -44,7 +44,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: |
-            frontend/mis/dist/*
+            frontend/mis-ilpd/dist/*
           target: /home/${{ secrets.SERVER_USER }}/deploy
 
       # SSH into server and restart Spring Boot app
