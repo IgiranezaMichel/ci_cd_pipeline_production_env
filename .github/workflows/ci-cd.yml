@@ -18,6 +18,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
+      - name: Debug SSH connection
+        run: |
+          echo "${{ secrets.SERVER_SSH_KEY }}" > key.pem
+          chmod 600 key.pem
+          ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo ✅ Connected to server"
 
       - name: Install and Build Frontend
         working-directory: frontend/mis-ilpd
