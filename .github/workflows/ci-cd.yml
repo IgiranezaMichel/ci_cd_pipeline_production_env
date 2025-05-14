@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+      - name: Check SSH connectivity using netcat
+        run: |
+              apt update && apt install -y netcat
+              nc -vz ${{ secrets.SERVER_HOST }} 22
 
       # Setup Node for React
       - name: Set up Node.js
