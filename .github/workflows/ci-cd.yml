@@ -24,6 +24,8 @@ jobs:
         run: |
           npm ci
           npm run build
+          echo "${{secrets.SERVER_HOST"
+          echo "${{secrets.SERVER_SSH_KEY"
 
       # Setup Java for Spring Boot
       # - name: Set up JDK 17
